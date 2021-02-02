@@ -1,6 +1,9 @@
 /* Global ==================== */
 :root{
     --dark-blue: #363f5f;
+    --green: #49AA26;
+    --light-green: #3dd705;
+    --red: #e92929;
 }
 
 * {
@@ -8,10 +11,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    font-size: 93.75%; /* equivale a 15px, calculo atingido pela regra de 3 (100*15)/16 = 93.75 isso em % */
+}
 
 body {
     background-color: #f0f2f5;
     font-family: 'Poppins', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .container {
@@ -19,9 +37,62 @@ body {
     margin: auto;
 }
 /* fim do Global =============================== */
+
+/* Inicio dos links & buttom */
+
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--light-green);
+}
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    color: white;
+    background-color: var(--green);
+
+    border-radius: 0.25rem;
+    padding: 0;
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--light-green);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
+.button.cancel{
+    width: 100%;
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 00.25rem;
+
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+.button.cancel:hover {
+    opacity: 1;
+}
+
+/* Fim dos Links & buttom */
+
 /* Inicio da tabela */
 #transection{
+    display: block;
     margin-top: 2rem;
+
+    overflow-x: auto;
     
 }
 #transection h2 {
@@ -31,8 +102,12 @@ body {
     margin-bottom: 0.8rem;
 }
 #data-table {
+   
     width: 100%;
     border-spacing: 0 0.5rem;
+    color: #969cb3;
+
+    
 }
 table th{
     background: white;
@@ -48,6 +123,7 @@ table td{
     text-align: left;
     color: #969cb3;
 
+    
 }
 table tbody tr {
     opacity: 0.7;
@@ -56,10 +132,16 @@ table tbody tr:hover {
     font-weight: bolder;
     opacity: 1;
 }
-
+/* Estilizando a borda inicial do componente filho usando pseudo classe */
 table thead tr th:first-child,
 table tbody tr td:first-child{
     border-radius: 0.25rem 0 0 0.25rem;
+}
+/* estilizando a borda final do componente filho usando pseudo classe */
+table thead tr th:last-child,
+table tbody tr td:last-child{
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer; /* inserindo o cursor para alterar informar que pode ser clicavel para alteração */ 
 }
 
 td.description {
@@ -124,6 +206,10 @@ header{
 .card h3 {
     font-weight: normal;
     font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .card p {
     font-size: 2rem;
@@ -136,12 +222,77 @@ header{
 }
 
 .card.total{
- background: #49AA26;
+ background: var(--green);
  color: white;
 }
 
 /* Fim dos cards ====================================== */
 
+/* Inicio do Modal ====================================== */
+.modal-overlay {
+    width: 100%;
+    height: 100%; 
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    z-index: 999;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal {
+    background: #F0F2f5;
+    padding: 2.4rem;
+   
+    position: relative;
+    z-index: 1;
+    
+}
+/* inicio do Modal form ====================================== */
+
+#form {
+    max-width: 500px;
+}
+#form h2 {
+    margin-top: 0;
+}
+input {
+    border: none;
+    border-radius: 0.2rem;
+
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+.input-group small {
+    opacity: 0.4;
+}
+
+.input-group.actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button{
+    width: 48%;
+}
+
+/* Fim dos Modal ====================================== */
 
 /* Rodapé ====================== */
 footer{
@@ -190,3 +341,21 @@ ul.social-link li a:hover{
     
 }
 
+/* Fim do footer ========================= */
+
+/* Inicio da responsividade =================== */
+
+@media(min-width: 800px ) {
+    html {
+        width: 100%;
+        font-size: 87.5%;
+    }
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* utilizando função repeat primeiro quantas vezes, depois dimenção */
+        gap: 2rem;
+    }
+    
+}
+
+/* Fim da responsividade ======================= */
