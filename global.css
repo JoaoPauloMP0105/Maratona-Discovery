@@ -1,9 +1,16 @@
 /* Global ==================== */
 :root{
-    --dark-blue: #363f5f;
-    --green: #49AA26;
-    --light-green: #3dd705;
+    --dark-blue: #022419;
+    --green: #718de9;
+    --light-green: #040353;
     --red: #e92929;
+    --corpo-white: #b8c8e0;
+    --light-blue: #969cb3;
+    --color-header: #3c0b64;
+    --income-color: #8780c7;
+    --expense-color: #8780c7;
+    --total-color: #8780c7;
+
 }
 
 * {
@@ -16,7 +23,7 @@ html {
 }
 
 body {
-    background-color: #f0f2f5;
+    background-color: var(--corpo-white);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -105,7 +112,7 @@ button:hover{
    
     width: 100%;
     border-spacing: 0 0.5rem;
-    color: #969cb3;
+    color: var(--light-blue);
 
     
 }
@@ -114,14 +121,14 @@ table th{
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;
-    color: #969cb3;
+    color: var(--light-blue);
 }
 
 table td{
     background: white;
     padding: 0.7rem 0.7rem;
     text-align: left;
-    color: #969cb3;
+    color: var(--light-blue);
 
     
 }
@@ -165,7 +172,7 @@ h2 {
 
 /* HEADER =================== */
 header{
-    background-color: #2D4A22;
+    background-color: var(--color-header);
     padding: 2rem 0 10rem;
     text-align: center;
 }
@@ -181,6 +188,7 @@ header{
     
 }
 #balance h2 {
+    font-size: small;
     color: #fff;
     margin: 0;
     margin-bottom: 0.8rem;
@@ -201,7 +209,7 @@ header{
     padding: 1rem 3rem ;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #969cb3;
+    color: var(--light-blue);
 }
 .card h3 {
     font-weight: normal;
@@ -218,11 +226,18 @@ header{
     margin-top: 1rem;
 }
 .card p.expense{
-    color: #e92929;
+    color: var(--red);
 }
-
+.card.income{
+    background: var(--income-color);
+    color: white;
+}
+.card.expense{
+    background: var(--expense-color);
+    color: white;
+}
 .card.total{
- background: var(--green);
+ background: var(--total-color);
  color: white;
 }
 
@@ -305,34 +320,39 @@ footer{
 }
 footer p{
     margin-bottom: 1rem;
+} 
+.list-inform {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
- div.suport {
-     margin-right: 70rem;
+.suport .contact .control-finance {
+    margin-top: 2rem;
+    margin-right: 3rem;
 }
-div.contact {
-    margin-right: 50rem;
-    margin-top: -2rem;
-}
-div.control-finance {
-    margin-right: 30rem;
-    margin-top: -2rem;
-}
-div.social {
+.social {
     margin-left: 60rem;
 }
-.social ul{
+.social {
     width: 100%;
     margin: auto;
     list-style: none;
+    
 }
-ul.social-link li {
+.social-link {
     padding: 0 0 0.3rem 0;
 }
-ul.social-link li a{
+.social-link li a{
     text-decoration: none;
     color: var(--dark-blue);
     opacity: 0.7;
     cursor: pointer;
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 2rem;
 }
 ul.social-link li a:hover{
     opacity: 3;

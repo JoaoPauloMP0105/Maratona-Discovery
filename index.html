@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <!-- Cabeçalho de meta dados do site -->
@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaratonaDiscovery</title>
 
-    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
@@ -22,32 +27,31 @@
     <main class="container">
         <section id="balance">
             <h2 class="sr-only">Balanço</h2>
-            <div class="card">
-
+            <div class="card income">
                 <h3>
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="Icone de Entradas">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 0,00</p>
 
             </div>
-            <div class="card">
+            <div class="card expense">
                 <h3>
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="Icone de Saidas">
                 </h3>
-                <p class="expense">-R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ 0,00</p>
             </div>
             <div class="card total">
                 <h3>
                     <span>Total</span>
                     <img src="./assets/total.svg" alt="Icone de Total">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 0,00</p>
             </div>
         </section>
 
-        <section id="transection">
+        <section id="transeaction">
             <h2 class="sr-only">Transações</h2>
 
             <a onclick="Modal.open()" href="#" class="button new">
@@ -62,27 +66,9 @@
                         <th></th>
                     </tr>
                 </thead>
+                <!-- Dados a serem inseridos através do java script -->
                 <tbody>
-                    <tr>
-                        <td class="description">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
-                    </tr>
-                    <tr>
-                        <td class="description">Criação de web-site</td>
-                        <td class="income">R$ 5000,00</td>
-                        <td>23/01/2021</td>
-                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
-
-                    </tr>
-                    <tr>
-                        <td class="description">Internet</td>
-                        <td class="expense">- R$ 200,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
-
-                    </tr>
+                    <!-- Mantenha vazio para o java script inserir os dados -->
                 </tbody>
             </table>
 
@@ -94,32 +80,26 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)">
                     <div class="input-group">
-                        <label class="sr-only" for="description">
-                            Descrição
-                        </label>
+                        <label class="sr-only" for="description">Descrição</label>
                         <input type="text" id="description" name="description" placeholder="Descrição" />
                     </div>
+
                     <div class="input-group">
-                        <label class="sr-only" for="amount">
-                            Valor
-                        </label>
-                        <input type="number" step="0.01" id="amount" name="amount" placeholder="R$ 0,00" />
-                        <small>use o sinal - (negativo) para despesas e ,
-                            (vírgula) para casas decimais</small>
+                        <label class="sr-only" for="amount">Valor</label>
+                        <input type="number" step="0.01" id="amount" name="amount" placeholder="0,00" />
+                        <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas
+                            decimais</small>
                     </div>
+
                     <div class="input-group">
-                        <label class="sr-only" for="date">
-                            Data
-                        </label>
+                        <label class="sr-only" for="date">Data</label>
                         <input type="date" id="date" name="date" />
                     </div>
 
                     <div class="input-group actions">
-                        <a onclick="Modal.close()" href="#" class="button cancel">
-                            Cancelar
-                        </a>
+                        <a onclick="Modal.close()" href="#" class="button cancel">Cancelar</a>
                         <button>Salvar</button>
                     </div>
                 </form>
@@ -130,44 +110,28 @@
     <!-- Rodapé da página do site -->
     <footer>
         <p>DevFinance$</p>
-        <div class="suport">
-            <p>Suporte</p>
+        <div class="list-inform">
+            <div class="suport">
+                <p>Suporte</p>
+            </div>
+            <div class="contact">
+                <p>contatos</p>
+            </div>
+            <div class="control-finance">
+                <p>Controle financeiro</p>
+            </div>
         </div>
-        <div class="contact">
-            <p>contatos</p>
-        </div>
-        <div class="control-finance">
-            <p>Controle financeiro</p>
-        </div>
+
         <div class="social">
             <ul class="social-link">
-                <li><a href="http://">Linkedin</a></li>
-                <li><a href="http://">Instagran</a></li>
-                <li><a href="http://">Facebook</a></li>
-                <li><a href="http://">Git-Hub</a></li>
+                <li><a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-918535123/" target="_blank">Linkedin</a></li>
+                <li><a href="https://www.instagram.com/joaopaulokbca/?hl=pt-br" target="_blank">Instagran</a></li>
+                <li><a href="https://www.facebook.com/joaopauloamaralmelo/" target="_blank">Facebook</a></li>
+                <li><a href="https://github.com/JoaoPauloMP0105" target="_blank" >Git-Hub</a></li>
             </ul>
         </div>
     </footer>
-    <script>
-        const Modal = {
-            open() {
-                // adicionar a classe active ao modal
-                // adicionando a DOM
-                document
-                    .querySelector('.modal-overlay') //pesquisando um argumento
-                    .classList
-                    .add('active') //buscando a propriedade class list
-
-            },
-            close() {
-                document
-                    .querySelector('.modal-overlay') //pesquisando um argumento
-                    .classList
-                    .remove('active') //buscando a propriedade class list
-
-            }
-        }
-    </script>
+    <script src="./script.js"></script>
 
 </body>
 
