@@ -1,3 +1,6 @@
+
+
+
 const Modal = {
   open(){
       // Abrir modal
@@ -81,8 +84,14 @@ const Transaction = {
       // retornar a variavel
       return expense;
   },
+  
+
   // Somando todas as entradas e saidas 
   total() {
+
+      
+      
+   
     // Retornando o resultado de trodas as entradas e saidas e mostrando o saldo
       return Transaction.incomes() + Transaction.expenses();
   }
@@ -99,6 +108,7 @@ const DOM = {
       // seleciona a variavel com a função appendChild e monta a tr
       DOM.transactionsContainer.appendChild(tr);
   },
+ 
 
   innerHTMLTransaction(transaction, index) {
     /** variavel inteligente para verificar a forma como o valor será
@@ -108,20 +118,21 @@ const DOM = {
     * se amount é menor que '0' se torna expense  
     */
       const CSSclass = transaction.amount > 0 ? "income" : "expense";
-
+      
       const amount = Utils.formatCurrency(transaction.amount);
 
-      const html = `
+      const html = `    
       <td class="description">${transaction.description}</td>
       <td class="${CSSclass}">${amount}</td> 
       <td class="date">${transaction.date}</td>
       <td>
           <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
       </td>
+      
       `
-
       return html;
   },
+  
   /**
    * Função que seleciona os valores dos objetos e soma eles com suas respectivas
    * condiçoes de entradas - saidas e total e insere nos cards para mostrar os valores
