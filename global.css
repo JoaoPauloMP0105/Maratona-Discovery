@@ -1,8 +1,8 @@
 /* Global ==================== */
 :root{
     --dark-blue: #022419;
-    --green: #718de9;
-    --light-green: #040353;
+    --green: #020e35;
+    --light-green: #03885c;
     --red: #e92929;
     --corpo-white: #b8c8e0;
     --light-blue: #969cb3;
@@ -71,7 +71,7 @@ button:hover{
 }
 
 .button.new {
-    display: inline-block;
+    
     margin-bottom: .8rem;
 }
 
@@ -95,12 +95,13 @@ button:hover{
 /* Fim dos Links & buttom */
 
 /* Inicio da tabela */
+
 #transection{
-    display: block;
     margin-top: 2rem;
 
     overflow-x: auto;
-    
+
+   
 }
 #transection h2 {
     color: var(--dark-blue);
@@ -234,7 +235,10 @@ header{
 }
 .card.expense{
     background: var(--expense-color);
-    color: white;
+    color:white;
+}
+#expenseDisplay {
+    color: var(--red);
 }
 .card.total{
  background: var(--total-color);
@@ -268,7 +272,8 @@ header{
 .modal {
     background: #F0F2f5;
     padding: 2.4rem;
-   
+    
+    border-radius: 0.5rem;
     position: relative;
     z-index: 1;
     
@@ -279,6 +284,8 @@ header{
     max-width: 500px;
 }
 #form h2 {
+    color: var(--color-header);
+    font-weight: bolder;
     margin-top: 0;
 }
 input {
@@ -311,15 +318,23 @@ input {
 
 /* Rodapé ====================== */
 footer{
-    margin: auto;
-    text-align: center;
-    padding: 2rem 0 2rem 0;
+    width: 100%;
+    height: 10rem;
+
+    bottom: 0;
+    
+    
+    
     color: var(--dark-blue);
     opacity: 0.6;
     background-color: rgb(245, 239, 245);
 }
+
 footer p{
-    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 } 
 .list-inform {
     display: flex;
@@ -331,7 +346,7 @@ footer p{
     margin-right: 3rem;
 }
 .social {
-    margin-left: 60rem;
+    margin-left: 50rem;
 }
 .social {
     width: 100%;
@@ -349,9 +364,9 @@ footer p{
     cursor: pointer;
 
     
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    display: grid;
+     
+    justify-content: end;
     margin-right: 2rem;
 }
 ul.social-link li a:hover{
@@ -375,7 +390,13 @@ ul.social-link li a:hover{
         grid-template-columns: repeat(3, 1fr); /* utilizando função repeat primeiro quantas vezes, depois dimenção */
         gap: 2rem;
     }
+    .negativo {
+        color: var(--red);
+      }
+      
+      .positivo {
+        color: #fff;
+      }
     
 }
-
 /* Fim da responsividade ======================= */
